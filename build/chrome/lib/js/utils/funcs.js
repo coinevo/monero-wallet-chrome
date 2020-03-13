@@ -26,7 +26,7 @@ function numberWithCommas(x) {
 function coinsFromAtomic(atomic) {
   var digits = atomic.length;
   var coins = '';
-  if (digits <= 12) {
+  if (digits <= 11) {
     var decimal = '';
     for (var i = digits; i < 12; i++) decimal += '0';
     decimal += atomic;
@@ -40,8 +40,8 @@ function coinsFromAtomic(atomic) {
 function coinsToAtomic(coins) {
   var whole = coins.split(".")[0];
   var decimal = coins.split(".")[1];
-  if (decimal == undefined) decimal = '000000000000';
-  for (var i = decimal.length; i < 12; i++) decimal += '0';
+  if (decimal == undefined) decimal = '00000000000';
+  for (var i = decimal.length; i < 11; i++) decimal += '0';
   var atomic = whole + decimal;
   return atomic;
 }

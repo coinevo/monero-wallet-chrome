@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     wallet_info.password = String(document.getElementById('password').value);
 
     var request = {
-      greeting: "Monero monero-wallet-rpc Update Wallet Info",
+      greeting: "Coinevo coinevo-wallet-rpc Update Wallet Info",
       newWalletPort: wallet_info.port,
       saveAuth: wallet_info.saveAuth,
       username: wallet_info.username,
@@ -135,7 +135,7 @@ var check_correct_auth = function (info) {
 }
 
 var get_wallet_info = function () {
-  var request = {greeting: "Monero monero-wallet-rpc Send Wallet Info"};
+  var request = {greeting: "Coinevo coinevo-wallet-rpc Send Wallet Info"};
   chrome.runtime.sendMessage(request, function (resp) {
     wallet_info.port = resp.port;
 
@@ -167,7 +167,7 @@ var get_wallet_info = function () {
         document.getElementById('address-string').textContent = wallet_info.address;
         document.getElementById('address-string-ell').textContent = '...';
         var qrcode = new QRCode("address-qr", {
-          text: "monero:" + wallet_info.address,
+          text: "coinevo:" + wallet_info.address,
           width: 192,
           height: 192,
           colorDark : "#000000",
@@ -225,7 +225,7 @@ function receiveIntegratedQR (payment_id, amount) {
         var integrated_address = resp.result.integrated_address;
         var amnt_str = String(amount);
 
-        var uri_string = 'monero:' + integrated_address;
+        var uri_string = 'coinevo:' + integrated_address;
         if (amnt_str.length > 0) uri_string += '?amount=' + amnt_str;
 
         var qrcode = new QRCode('receive-qr', {
@@ -252,7 +252,7 @@ function receiveNormalQR (payment_id, amount) {
   var amnt_str   = String(amount);
   var pay_id_str = String(payment_id);
 
-  var uri_string = 'monero:' + wallet_info.address;
+  var uri_string = 'coinevo:' + wallet_info.address;
   if (amnt_str.length > 0)   uri_string += '?amount=' + amnt_str;
   if (pay_id_str.length > 0) uri_string += '?payment_id=' + pay_id_str;
 
@@ -330,7 +330,7 @@ function fillIncomingTransactionTable(tx_table_id, transfer_type) {
           var hash   = row.insertCell(2);
           hash.className = 'tx-hash';
           hash.id = 'tx-hash-' + k;
-          hash.innerHTML = '<div class="in-tx-hash"><a target="_blank" href="http://moneroblocks.info/search/' + transfer_hash + '">' + transfer_hash + '</a></div><div class="in-tx-hash-ell">...</div>';
+          hash.innerHTML = '<div class="in-tx-hash"><a target="_blank" href="https://explorer.coinevo.tech/search/' + transfer_hash + '">' + transfer_hash + '</a></div><div class="in-tx-hash-ell">...</div>';
 
           k += 1;
         }
@@ -406,7 +406,7 @@ function fillOutgoingTransactionTable(tx_table_id, transfer_type) {
 
       var pay_div = document.createElement('div');
       pay_div.className = 'outgoing-pay-id';
-      pay_div.innerHTML = '<div class="out-pay-id-link"><span class="bold">Payment ID:</span> <a target="_blank" href="http://moneroblocks.info/search/' + pay_id + '">' + pay_id + '</a></div><div class="in-tx-hash-ell">...</div>';
+      pay_div.innerHTML = '<div class="out-pay-id-link"><span class="bold">Payment ID:</span> <a target="_blank" href="https://explorer.coinevo.tech/search/' + pay_id + '">' + pay_id + '</a></div><div class="in-tx-hash-ell">...</div>';
       info_details.appendChild(pay_div);
 
       var dest_title = document.createElement('div');
@@ -426,7 +426,7 @@ function fillOutgoingTransactionTable(tx_table_id, transfer_type) {
       hash_list.className = 'outgoing-hashes';
       hash_list.innerHTML = '<span class="bold">Tx Hashes:</span><br>';
       for (var j = 0; j < hashes.length; j++) {
-        hash_list.innerHTML += '<div class="outgoing-hash-link"><a target="_blank" href="http://moneroblocks.info/search/' + hashes[i] + '">' + hashes[i] + '</a></div><div class="in-tx-hash-ell">...</div><br>';
+        hash_list.innerHTML += '<div class="outgoing-hash-link"><a target="_blank" href="https://explorer.coinevo.tech/search/' + hashes[i] + '">' + hashes[i] + '</a></div><div class="in-tx-hash-ell">...</div><br>';
       }
       info_details.appendChild(hash_list);
 
@@ -606,7 +606,7 @@ function confirmSend () {
 
 }
 
-// Send Monero to destination on button click
+// Send Coinevo to destination on button click
 function sendMonero () {
   var addresses = document.getElementsByClassName('send-input-dest');
   var amounts = document.getElementsByClassName('send-input-amount');
@@ -638,7 +638,7 @@ function sendMonero () {
         for (var i=0; i < tx_hash_list.length; i++) {
           var this_hash = tx_hash_list[i];
           tx_hashes.push(this_hash);
-          document.getElementById('send-txhashlist-popup').innerHTML += '<a target="_blank" href="http://explore.moneroworld.com/search?value=' + this_hash + '">' + this_hash + '</a><br>';
+          document.getElementById('send-txhashlist-popup').innerHTML += '<a target="_blank" href="http://explorer.coinevo.tech/search?value=' + this_hash + '">' + this_hash + '</a><br>';
         }
 
         outgoingTxsDB.createOutgoingTx(pay_id, dests, tx_hashes, function(contact) {
@@ -669,7 +669,7 @@ function sendMonero () {
     },
     function (err) {
       var status = document.getElementById('send-error');
-      status.innerHTML = 'There was an error connecting to monero-wallet-rpc.';
+      status.innerHTML = 'There was an error connecting to coinevo-wallet-rpc.';
       status.style.display = 'block';
       setTimeout(function() {
         status.style.display = 'none';

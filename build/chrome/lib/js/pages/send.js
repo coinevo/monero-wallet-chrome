@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('send-button-popup').addEventListener('click', confirmSend);
 });
 
-// Requests Monero URI info that was found by background/send.js and fills send form:
+// Requests Coinevo URI info that was found by background/send.js and fills send form:
 function getMoneroURIfromBackground() {
-  var request = {greeting: "Monero monero-wallet-rpc Fill Send Page"};
+  var request = {greeting: "Coinevo coinevo-wallet-rpc Fill Send Page"};
   chrome.runtime.sendMessage(request, function (response) {
     document.getElementById('send-dest-popup-0').value   = response.address;
     document.getElementById('send-amount-popup-0').value = response.amount;
@@ -36,7 +36,7 @@ function getMoneroURIfromBackground() {
 
 // Request wallet info from background/wallet.js and display
 function getBalanceAndDisplay() {
-  var request = {greeting: "Monero monero-wallet-rpc Send Wallet Info"};
+  var request = {greeting: "Coinevo coinevo-wallet-rpc Send Wallet Info"};
   chrome.runtime.sendMessage(request, function (resp) {
     if (resp.status == 'ok') {
       document.getElementById('send-status-offline').style.display = "none";
@@ -134,7 +134,7 @@ function confirmSend () {
 
 }
 
-// Send Monero to destination on button click
+// Send Coinevo to destination on button click
 function sendMoneroNewTab () {
   var destination = document.getElementById('send-dest-popup-0').value;
   var amount = String(document.getElementById('send-amount-popup-0').value);
@@ -158,7 +158,7 @@ function sendMoneroNewTab () {
         for (var i=0; i < tx_hash_list.length; i++) {
           var this_hash = tx_hash_list[i];
           tx_hashes.push(this_hash);
-          document.getElementById('send-txhashlist-popup').innerHTML += '<a target="_blank" href="http://explore.moneroworld.com/search?value=' + this_hash + '">' + this_hash + '</a><br>';
+          document.getElementById('send-txhashlist-popup').innerHTML += '<a target="_blank" href="http://explorer.coinevo.tech/search?value=' + this_hash + '">' + this_hash + '</a><br>';
         }
 
         outgoingTxsDB.createOutgoingTx(pay_id, dests, tx_hashes, function(contact) {
@@ -189,7 +189,7 @@ function sendMoneroNewTab () {
     },
     function (err) {
       var status = document.getElementById('send-error-popup');
-      status.innerHTML = 'There was an error connecting to monero-wallet-rpc.';
+      status.innerHTML = 'There was an error connecting to coinevo-wallet-rpc.';
       status.style.display = 'block';
       setTimeout(function() {
         status.style.display = 'none';

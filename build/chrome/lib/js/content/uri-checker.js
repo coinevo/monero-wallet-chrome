@@ -1,7 +1,7 @@
-// Parse Monero URIs:
+// Parse Coinevo URIs:
 function parseMoneroURI(url) {
   var parsed = { url: url };
-  var r = /^monero:([a-zA-Z0-9]{95})(?:\?(.*))?$/;
+  var r = /^coinevo:([a-zA-Z0-9]{95})(?:\?(.*))?$/;
   var match = r.exec(url);
   if (!match) return null;
 
@@ -19,7 +19,7 @@ function parseMoneroURI(url) {
   return parsed;
 }
 
-// Parses Monero URI and puts into wallet's Send tab and opens wallet:
+// Parses Coinevo URI and puts into wallet's Send tab and opens wallet:
 function openMoneroWalletCLIsend(href) {
   var parsed_href = parseMoneroURI(href);
   var href_json = {
@@ -29,15 +29,15 @@ function openMoneroWalletCLIsend(href) {
     mixin: (parsed_href.hasOwnProperty("mixin") ? parsed_href.mixin : 3)
   };
 
-  var request = {greeting: "Monero monero-wallet-rpc Payment Request", href: href_json};
+  var request = {greeting: "Coinevo coinevo-wallet-rpc Payment Request", href: href_json};
   chrome.runtime.sendMessage(request, function(resp) { console.log(resp); });
 }
 
-// Check links and add onclick to Monero URIs:
+// Check links and add onclick to Coinevo URIs:
 function checkLinksOnPage() {
   var links_on_page = document.getElementsByTagName("a");
   for (var i = 0; i < links_on_page.length; i++) {
-    if (links_on_page[i].href.substring(0,7) == 'monero:') {
+    if (links_on_page[i].href.substring(0,7) == 'coinevo:') {
       links_on_page[i].onclick = function () { openMoneroWalletCLIsend(this.href); return false; }
     }
   }

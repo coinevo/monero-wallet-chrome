@@ -58,7 +58,7 @@ function walletJSONrpc(port, method, params, onSuccess, onFailure) {
   }
 }
 
-// Get the balance of connected monero-wallet-rpc:
+// Get the balance of connected coinevo-wallet-rpc:
 function getBalance(port, onSuccess, onFailure) {
   var method = "getbalance";
   walletJSONrpc(port, method, undefined,
@@ -71,7 +71,7 @@ function getBalance(port, onSuccess, onFailure) {
   );
 }
 
-// Get the address of connected monero-wallet-rpc:
+// Get the address of connected coinevo-wallet-rpc:
 function getAddress(port, onSuccess, onFailure) {
   var method = "getaddress";
   walletJSONrpc(port, method, undefined,
@@ -84,7 +84,7 @@ function getAddress(port, onSuccess, onFailure) {
   );
 }
 
-// Get the height of connected monero-wallet-rpc:
+// Get the height of connected coinevo-wallet-rpc:
 function getHeight(port, onSuccess, onFailure) {
   var method = "getheight";
   walletJSONrpc(port, method, undefined,
@@ -97,7 +97,7 @@ function getHeight(port, onSuccess, onFailure) {
   );
 }
 
-// Make a transfer from connected monero-wallet-rpc:
+// Make a transfer from connected coinevo-wallet-rpc:
 function transfer(port, destinations, payment_id, fee, mixin, unlock_time, get_tx_key, onSuccess, onFailure) {
   // Set up JSON_RPC call:
   var method = "transfer";
@@ -119,7 +119,7 @@ function transfer(port, destinations, payment_id, fee, mixin, unlock_time, get_t
   );
 }
 
-// Make a transfer from connected monero-wallet-rpc:
+// Make a transfer from connected coinevo-wallet-rpc:
 function transferSplit(port, destinations, payment_id, fee, mixin, unlock_time, get_tx_key, new_algorithm, onSuccess, onFailure) {
   // Set up JSON_RPC call:
   var method = "transfer_split";
@@ -146,7 +146,7 @@ function transferSplit(port, destinations, payment_id, fee, mixin, unlock_time, 
   );
 }
 
-// Sweep dust of connected monero-wallet-rpc:
+// Sweep dust of connected coinevo-wallet-rpc:
 function sweepDust(port, onSuccess, onFailure) {
   var method = "sweep_dust";
   walletJSONrpc(port, method, undefined, function(resp){
@@ -154,7 +154,7 @@ function sweepDust(port, onSuccess, onFailure) {
   });
 }
 
-// Store monero-wallet-rpc:
+// Store coinevo-wallet-rpc:
 function store(port, onSuccess, onFailure) {
   var method = "store";
   walletJSONrpc(port, method, undefined,
@@ -292,7 +292,7 @@ function splitIntegratedAddress(port, integrated_address, onSuccess, onFailure) 
 }
 
 
-// Disconnect monero-wallet-rpc:
+// Disconnect coinevo-wallet-rpc:
 function stopWallet(port, onSuccess, onFailure) {
   var method = 'stop_wallet';
   walletJSONrpc(port, method, undefined,
