@@ -1,5 +1,5 @@
 // Parse Coinevo URIs:
-function parseMoneroURI(url) {
+function parseCoinevoURI(url) {
   var parsed = { url: url };
   var r = /^coinevo:([a-zA-Z0-9]{95})(?:\?(.*))?$/;
   var match = r.exec(url);
@@ -20,8 +20,8 @@ function parseMoneroURI(url) {
 }
 
 // Parses Coinevo URI and puts into wallet's Send tab and opens wallet:
-function openMoneroWalletCLIsend(href) {
-  var parsed_href = parseMoneroURI(href);
+function openCoinevoWalletCLIsend(href) {
+  var parsed_href = parseCoinevoURI(href);
   var href_json = {
     address: parsed_href.address,
     amount: (parsed_href.hasOwnProperty("amount") ? parsed_href.amount : 0),
@@ -38,7 +38,7 @@ function checkLinksOnPage() {
   var links_on_page = document.getElementsByTagName("a");
   for (var i = 0; i < links_on_page.length; i++) {
     if (links_on_page[i].href.substring(0,7) == 'coinevo:') {
-      links_on_page[i].onclick = function () { openMoneroWalletCLIsend(this.href); return false; }
+      links_on_page[i].onclick = function () { openCoinevoWalletCLIsend(this.href); return false; }
     }
   }
 }

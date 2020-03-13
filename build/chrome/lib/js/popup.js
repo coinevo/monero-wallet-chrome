@@ -468,7 +468,7 @@ function chooseSendContacts(addr_form_id) {
         var contactName = document.createElement('span');
         contactName.className = 'send-contact-name';
         contactName.innerHTML = contact.name;
-        contactName.setAttribute("data-id", contact.xmr_address);
+        contactName.setAttribute("data-id", contact.evo_address);
         li.appendChild(contactName);
 
         contactList.appendChild(li);
@@ -499,13 +499,13 @@ function storeNewContact () {
 
   // Get the contact.
   var name = contactName.value;
-  var xmr_addr = contactAddr.value;
+  var evo_addr = contactAddr.value;
   var info = contactInfo.value;
 
-  // Check to make sure the name and xmr_addr are not blank (or just spaces).
-  if (name.replace(/ /g,'') != '' && xmr_addr.replace(/ /g,'') != '') {
+  // Check to make sure the name and evo_addr are not blank (or just spaces).
+  if (name.replace(/ /g,'') != '' && evo_addr.replace(/ /g,'') != '') {
     // Create the contact.
-    contactsDB.createContact(name, xmr_addr, info, function(contact) {
+    contactsDB.createContact(name, evo_addr, info, function(contact) {
       var status = document.getElementById('save-success');
       status.innerHTML = 'Contact saved successfully.';
       status.style.display = 'block';
@@ -575,7 +575,7 @@ function confirmSend () {
 
     var amnt = document.createElement('div');
     amnt.className = 'send-confirm-field';
-    if (amount != '') amnt.innerHTML = amount + ' XMR';
+    if (amount != '') amnt.innerHTML = amount + ' EVO';
     li.appendChild(amnt);
 
     if (i%2 == 0) {
@@ -597,7 +597,7 @@ function confirmSend () {
   document.getElementById('send-confirm-yes').onclick = function () {
     document.getElementById("send-confirm-yes").disabled = true;
     document.querySelector('#verify-send-checkbox').checked = false;
-    sendMonero();
+    sendCoinevo();
     document.getElementById('send-confirm-popup').style.display = 'none';
   };
   document.getElementById('send-confirm-no').onclick = function () {
@@ -607,7 +607,7 @@ function confirmSend () {
 }
 
 // Send Coinevo to destination on button click
-function sendMonero () {
+function sendCoinevo () {
   var addresses = document.getElementsByClassName('send-input-dest');
   var amounts = document.getElementsByClassName('send-input-amount');
   var dests = [];

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Monero Wallet for Google Chrome&#8482;</title>
+  <title>Coinevo Wallet for Google Chrome&#8482;</title>
   <link href="/data/css/style-general.css" rel="stylesheet" type="text/css">
   <link href="/data/css/style-popup.css" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="/lib/js/deps/qrcode/qrcode.min.js"></script>
@@ -38,14 +38,14 @@
   </div>
 
   <div id="logo-header">
-    <h1><img id="monero-logo" src="/data/img/logo686white.png"> Monero Wallet</h1>
+    <h1><img id="coinevo-logo" src="/data/img/logo686white.png"> Coinevo Wallet</h1>
 
     <div id="nav-menu">
       <div id="menuButton" class="menu-button-div"><img id="menu-img"/></div>
       <ul id="navbar">
         <li class="nav-button" id="overviewButton" data-tip="View general wallet information.">Overview</li>
-        <li class="nav-button" id="sendButton" data-tip="Send Monero to another wallet.">Send</li>
-        <li class="nav-button" id="receiveButton" data-tip="Receive Monero at this wallet.">Receive</li>
+        <li class="nav-button" id="sendButton" data-tip="Send Coinevo to another wallet.">Send</li>
+        <li class="nav-button" id="receiveButton" data-tip="Receive Coinevo at this wallet.">Receive</li>
         <li class="nav-button" id="transactionsButton" data-tip="View wallet transaction information.">Transactions</li>
       </ul>
     </div>
@@ -66,11 +66,11 @@
       <h3> Wallet Status: </h3>
 
       <div class="errormsg" id="status-error" style="display: inline-block;">
-        monero-wallet-rpc is not available at Port <span id="status-port"></span>.
+        coinevo-wallet-rpc is not available at Port <span id="status-port"></span>.
       </div>
 
       <div class="successmsg" id="status-success">
-        monero-wallet-rpc was successfully closed.
+        coinevo-wallet-rpc was successfully closed.
       </div>
     </div>
 
@@ -119,7 +119,7 @@
         <div class="send-info">Unlocked:</div><div class="send-balance lightgray" id="send-unlocked-balance"></div>
       </div>
 
-      <h3> Send Monero: </h3>
+      <h3> Send Coinevo: </h3>
 
       <div id="send-contact-list">
         <div id="cancel-send-contact"><img class="add-sub subtraction" id="cancel-contact"/></div>
@@ -132,7 +132,7 @@
         <h3 id="save-contact-header">Save Contact:</h3>
         <form id="save-contact-form">
           <input type="text" name="save-contact" id="save-contact-name" placeholder="Contact Name" required>
-          <input type="text" name="save-contact" id="save-contact-addr" placeholder="XMR Address" required>
+          <input type="text" name="save-contact" id="save-contact-addr" placeholder="EVO Address" required>
           <textarea rows="4" id="save-contact-info" placeholder="Extra Information"></textarea>
           <button type='button' id="save-contact-button">Save</button>
         </form>
@@ -153,7 +153,7 @@
 
           <div class="send-title" id="send-title-dest">Destination:</div><div class="send-title" id="send-title-amount">Amount:</div><br>
 
-          <div class="send-dest-field"><input type="text" class="send-input-dest" id="send-dest-0"  placeholder="Enter destination address"><img class="send-contact-icon" id="send-contact-0"><img class="save-contact-icon" id="save-contact-0"></div><div class="send-amount-field"><input type="text" class="send-input-amount" id="send-amount-0"  placeholder="Enter amount (XMR)"></div>
+          <div class="send-dest-field"><input type="text" class="send-input-dest" id="send-dest-0"  placeholder="Enter destination address"><img class="send-contact-icon" id="send-contact-0"><img class="save-contact-icon" id="save-contact-0"></div><div class="send-amount-field"><input type="text" class="send-input-amount" id="send-amount-0"  placeholder="Enter amount (EVO)"></div>
 
         </div>
 
@@ -188,7 +188,7 @@
 
     <!-- Receive Tab -->
     <div id="receive-tab">
-      <h3> Receive Monero: </h3>
+      <h3> Receive Coinevo: </h3>
       <form id="receive-form">
 
 		<div id="receive-qr-message">
@@ -207,7 +207,7 @@
 		</div>
 
 		<div class="form-field-row">
-		  <div class="receive-title">Amount: &nbsp;</div><div class="receive-field"><input type="text" id="receive-amount" placeholder="Enter amount in XMR"></div><br>
+		  <div class="receive-title">Amount: &nbsp;</div><div class="receive-field"><input type="text" id="receive-amount" placeholder="Enter amount in EVO"></div><br>
         </div>
 
         <div class="form-field-row" id="receive-pay-id-div">
@@ -248,7 +248,7 @@
   </div>
 
   <div id="footer">
-    Monero Wallet for Google Chrome&#8482; is distributed without warranty under the <a href="/LICENSE" target="_blank">MIT License</a>.<br>
+    Coinevo Wallet for Google Chrome&#8482; is distributed without warranty under the <a href="/LICENSE" target="_blank">MIT License</a>.<br>
     Google Chrome is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
   </div>
 

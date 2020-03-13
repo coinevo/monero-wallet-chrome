@@ -117,7 +117,7 @@ function startButtonListeners() {
     
     var new_amnt_field = document.createElement('div');
     new_amnt_field.className = 'send-amount-field';
-    new_amnt_field.innerHTML = '<input type="text" class="send-input-amount" id="send-amount-'+i+'" placeholder="Enter amount (XMR)">';
+    new_amnt_field.innerHTML = '<input type="text" class="send-input-amount" id="send-amount-'+i+'" placeholder="Enter amount (EVO)">';
     new_amnt_field.setAttribute("data-id", 'amnt-field-'+i);
     
     destinations.appendChild(new_dest_field);

@@ -1,5 +1,5 @@
 /* 
- * Monero monero-wallet-rpc Manager Stylesheet
+ * Coinevo coinevo-wallet-rpc Manager Stylesheet
  * See LICENSE for use.
  */
 
@@ -59,7 +59,7 @@ div.contact-name {
   color: #505050;
 }
 
-div.contact-xmr-addr {
+div.contact-evo-addr {
   margin: 10px 0;
   width: auto;
   border: 1px solid #E0E0E0;

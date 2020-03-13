@@ -1,9 +1,9 @@
 /*
  * (c) Copyright 2016 bigreddmachine.
  *
- * These functions enable interactions with monero-wallet-rpc
+ * These functions enable interactions with coinevo-wallet-rpc
  * using javascript in the browser. This requires the json-bigint.js in order to parse
- * monero-wallet-rpc numbers larger than the precision possible by Javascript.
+ * coinevo-wallet-rpc numbers larger than the precision possible by Javascript.
  *
  * See LICENSE for terms and use.
  */

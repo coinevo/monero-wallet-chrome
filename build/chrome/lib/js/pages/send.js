@@ -12,7 +12,7 @@ var wallet_info = {
 
 document.addEventListener('DOMContentLoaded', function () {
   // After send.html loads in a new tab, request background/send.js for the found href
-  getMoneroURIfromBackground();
+  getCoinevoURIfromBackground();
 
   // Get wallet info from settings:
   getBalanceAndDisplay();
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Requests Coinevo URI info that was found by background/send.js and fills send form:
-function getMoneroURIfromBackground() {
+function getCoinevoURIfromBackground() {
   var request = {greeting: "Coinevo coinevo-wallet-rpc Fill Send Page"};
   chrome.runtime.sendMessage(request, function (response) {
     document.getElementById('send-dest-popup-0').value   = response.address;
@@ -103,7 +103,7 @@ function confirmSend () {
 
     var amnt = document.createElement('div');
     amnt.className = 'send-confirm-field';
-    if (amount != '') amnt.innerHTML = amount + ' XMR';
+    if (amount != '') amnt.innerHTML = amount + ' EVO';
     li.appendChild(amnt);
 
     if (i%2 == 0) {
@@ -125,7 +125,7 @@ function confirmSend () {
   document.getElementById('send-confirm-yes').onclick = function () {
     document.getElementById("send-confirm-yes").disabled = true;
     document.querySelector('#verify-send-checkbox').checked = false;
-    sendMoneroNewTab();
+    sendCoinevoNewTab();
     document.getElementById('send-confirm-popup').style.display = 'none';
   };
   document.getElementById('send-confirm-no').onclick = function () {
@@ -135,7 +135,7 @@ function confirmSend () {
 }
 
 // Send Coinevo to destination on button click
-function sendMoneroNewTab () {
+function sendCoinevoNewTab () {
   var destination = document.getElementById('send-dest-popup-0').value;
   var amount = String(document.getElementById('send-amount-popup-0').value);
   var pay_id = document.getElementById('send-pay-id-popup').value;

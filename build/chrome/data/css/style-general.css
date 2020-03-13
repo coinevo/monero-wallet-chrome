@@ -1,5 +1,5 @@
 /*
- * Monero monero-wallet-rpc Manager Stylesheet
+ * Coinevo coinevo-wallet-rpc Manager Stylesheet
  * See LICENSE for use.
  */
 
@@ -175,7 +175,7 @@ div#logo-header {
   margin: 0px;
 }
 
-img#monero-logo {
+img#coinevo-logo {
   height: 40px;
   vertical-align: middle;
   padding:4px;

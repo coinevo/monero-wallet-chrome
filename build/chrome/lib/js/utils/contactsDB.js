@@ -68,11 +68,11 @@ var contactsDB = (function() {
   /**
    * Create a new contact.
    */
-  cDB.createContact = function(name, xmr_addr, info, callback) {
+  cDB.createContact = function(name, evo_addr, info, callback) {
     var timestamp = new Date().getTime();
     var contact = {
       'name': name,
-      'xmr_address': xmr_addr,
+      'evo_address': evo_addr,
       'info': info,
       'timestamp': timestamp
     };
